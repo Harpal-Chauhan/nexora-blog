@@ -115,7 +115,7 @@ const TopicsClient = ({ category, articles }) => {
                     <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-black/5">
                       {article.coverImage ? (
                         <img
-                          src={`http://localhost:1337${article.coverImage.url}`}
+                          src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${article.coverImage.url}`}
                           alt={article.coverImage.alternativeText || title}
                           className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                         />

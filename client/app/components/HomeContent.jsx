@@ -60,7 +60,7 @@ const HomeContent = ({ articles, categories }) => {
                   <div className="relative min-h-[320px] overflow-hidden bg-gray-200 md:min-h-[500px]">
                     {featuredArticle.coverImage?.url ? (
                       <img
-                        src={`http://localhost:1337${featuredArticle.coverImage.url}`}
+                        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${featuredArticle.coverImage.url}`}
                         alt={featuredArticle.title}
                         className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                       />
@@ -166,7 +166,7 @@ const HomeContent = ({ articles, categories }) => {
                       <div className="relative aspect-[16/10] overflow-hidden bg-gray-200">
                         {article.coverImage?.url ? (
                           <img
-                            src={`http://localhost:1337${article.coverImage.url}`}
+                            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${article.coverImage.url}`}
                             alt={title}
                             className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                           />

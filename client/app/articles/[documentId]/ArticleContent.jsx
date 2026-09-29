@@ -85,7 +85,7 @@ const ArticleContent = ({ article }) => {
         <section className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="group relative overflow-hidden rounded-[1.5rem] bg-black/5 sm:rounded-[2rem]">
             <img
-              src={`http://localhost:1337${article.coverImage.url}`}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${article.coverImage.url}`}
               alt={
                 article.coverImage.alternativeText || title || "NEXORA Article"
               }

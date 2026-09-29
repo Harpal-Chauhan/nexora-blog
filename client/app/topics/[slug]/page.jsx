@@ -8,7 +8,7 @@ const TopicsPage = async ({ params }) => {
 
   // Get category
   const categoryResponse = await fetch(
-    `http://localhost:1337/api/categories?filters[slug][$eq]=${slug}&populate=*`,
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories?filters[slug][$eq]=${slug}&populate=*`,
     {
       cache: "no-store",
     },
@@ -58,7 +58,7 @@ const TopicsPage = async ({ params }) => {
 
   // Get articles of this category
   const articleResponse = await fetch(
-    `http://localhost:1337/api/articles?filters[category][slug][$eq]=${slug}&populate=*`,
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles?filters[category][slug][$eq]=${slug}&populate=*`,
     {
       cache: "no-store",
     },

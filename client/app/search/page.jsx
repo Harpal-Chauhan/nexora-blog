@@ -28,7 +28,7 @@ const SearchPage = () => {
         const searchValue = encodeURIComponent(query.trim());
 
         const response = await fetch(
-          `http://localhost:1337/api/articles?filters[$or][0][title][$containsi]=${searchValue}&filters[$or][1][description][$containsi]=${searchValue}&filters[$or][2][titleGujarati][$containsi]=${searchValue}&filters[$or][3][descriptionGujarati][$containsi]=${searchValue}&populate=*`,
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles?filters[$or][0][title][$containsi]=${searchValue}&filters[$or][1][description][$containsi]=${searchValue}&filters[$or][2][titleGujarati][$containsi]=${searchValue}&filters[$or][3][descriptionGujarati][$containsi]=${searchValue}&populate=*`,
         );
 
         const result = await response.json();
@@ -192,7 +192,7 @@ const SearchPage = () => {
                     <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-black/5">
                       {article.coverImage ? (
                         <img
-                          src={`http://localhost:1337${article.coverImage.url}`}
+                          src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${article.coverImage.url}`}
                           alt={article.coverImage.alternativeText || title}
                           className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                         />

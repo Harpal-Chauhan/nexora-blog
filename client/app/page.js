@@ -2,7 +2,7 @@ import HomeContent from "./components/HomeContent";
 
 const Home = async () => {
   const articleResponse = await fetch(
-    "http://localhost:1337/api/articles?populate=*",
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles?populate=*`,
     {
       cache: "no-store",
     },
@@ -12,7 +12,7 @@ const Home = async () => {
   const articles = articleResult.data || [];
 
   const categoryResponse = await fetch(
-    "http://localhost:1337/api/categories?populate=*",
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories?populate=*`,
     {
       cache: "no-store",
     },
